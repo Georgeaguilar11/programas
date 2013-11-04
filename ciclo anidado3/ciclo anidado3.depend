@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1383087829 source:c:\users\jorge\documents\github\programas\ciclo anidado3\main.cpp
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
