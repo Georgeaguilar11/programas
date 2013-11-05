@@ -3,11 +3,12 @@
 using namespace std;
 
 int main()
-{int numero,suma=0,cifra,mayor,contador,suma2=0;
+{int numero,suma,cifra,mayor,contador,suma2=0;
 char resp;
 double promedio;
 mayor=0;
 contador=0;
+
 do
 {
     do
@@ -18,19 +19,8 @@ do
 
 
     }while (!(((numero>=1) and (numero<=200)) and ((numero%2)==0)));
-    _flushall();
 
-
-
-    do
-    {
-        cout<<"Desea continuar..:";
-        cin.get(resp);
-        _flushall();
-    }while ((resp!='S') and (resp!='N'));
-
-
-    if (numero>mayor)
+      if (numero>mayor)
     {
          mayor=numero;
     }
@@ -41,15 +31,12 @@ do
         contador++;
     }
 
-    if (contador!=0)
-    {
-        promedio=suma2/contador;
-    }
-    else
-    {
-        promedio=0;
-    }
 
+
+
+    _flushall();
+
+    suma=0;
 
     while (numero>0)
     {
@@ -61,9 +48,31 @@ do
     }
 
 
+cout<<"Suma de los digitos..:"<<suma<<"\n";
+
+
+    do
+    {
+        cout<<"Desea continuar..:";
+        cin.get(resp);
+        _flushall();
+    }while ((resp!='S') and (resp!='N'));
+
+if (contador!=0)
+    {
+        promedio=suma2/contador;
+    }
+    else
+    {
+        promedio=0;
+    }
+
+
 }while (resp!='N');
 
-cout<<"Suma de los digitos..:"<<suma<<"\n";
+
+
+
 cout<<"El numero mayor es..:"<<mayor<<"\n";
 cout<<"El promedio es..:"<<promedio<<"\n";
 
