@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1386626848 source:c:\users\jorge\documents\github\programas\buscaminas\main.cpp
+	<iostream>
+	<stdio.h>
+	<time.h>
+	<stdlib.h>
+	<string.h>
+
