@@ -10,24 +10,26 @@ elaborar un procedimiennto para agregar al final de la cadena un asterico
 presentar la cadena modificada con el asterico y a la par el numero
 de consonantes que tienen
 */
-char cadena[5][30];
+const int n=5;
+char cadena[n][30];
+int consonante[n];
 
-void ingresar ( char cadena[5][30])
+void ingresar ( char cadena[n][30])
 {
-    for (int i=0;i<5;i++)
+    for (int i=0;i<n;i++)
     {
          cout<<"Ingresar el nombre : ";
          cin.getline(cadena[i],30);
     }
 }
-int consonantes(char cadena[30])
+int contarc(char cadena[])
 {
-    int fin=strlen(cadena);
-    int contador=0;
-    for (int i=0;i<fin;i++)
+    int i,consonantes,nl;
+    nl=strlen(cadena);
+    consonantes=0;
+    for (int i=0;i<nl;i++)
     {
-        char letra=cadena[i];
-        switch (letra)
+        switch (cadena[i])
         {
              case 'a':
                 case 'A':
@@ -38,30 +40,54 @@ int consonantes(char cadena[30])
                 case 'u':
                 case 'U':
                     break;
-                    default:contador++;
+                    default:consonantes++;
                     break;
         }
+    }return consonantes;
+}
+void contarConsonantes(char cadena[n][30],int consonante[])
+{
+    for (int i=0;i<n;i++)
+    {
+        consonante[i]=contarc(cadena[i]);
     }
 }
-void asterico(char cadena[5][30])
+void asterico(char cadena[n][30])
 {int nl;
-    for (int i=0;i<5;i++)
+    for (int i=0;i<n;i++)
     {
        nl=strlen(cadena[i]);
        cadena[i][nl]='*';
     }
 }
-void presentar(char cadena[5][30])
+void presentar(char cadena[n][30],int consonante[])
 {
-    for (int i=0;i<5;i++)
+    for (int i=0;i<n;i++)
     {
-        cout<<cadena[i]<<" "<<consonantes(cadena[i])<<endl;
+        cout<<cadena[i]<<" "<<consonante[i]<<"\n";
     }
+}
+void pmayor(char nombre[n][30],int consonante[])
+{
+    int pos,mayor=0;
+
+    for (int i=0;i<n;i++)
+    {
+        if (mayor<consonante[i])
+        {
+            mayor=consonante[i];
+            pos=i;
+        }
+    }
+    cout<<"Mayor es "<<cadena[pos]<<" Con "<<mayor<<"\n";
 }
 int main()
 {
     ingresar(cadena);
+    contarConsonantes(cadena,consonante);
     asterico(cadena);
-    presentar(cadena);
+    presentar(cadena,consonante);
+    pmayor(cadena,consonante);
+
     return 0;
 }
